@@ -1,12 +1,25 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}, my friend!
-  </h1>
-  <br/>
-  <div *ngIf="clickCount > 0">
-    <h3>You clicked : {{clickCount}} times</h3>
-  </div>
-  <button (click)="fire()">Fire !</button>
-</div>
+<div class="menu">
+    <a href="/"></a>
+    </div>
+  <div class="nav">
+      <ul>
+          <li class="active">
+              <div class="fix">
+                    <span class="ico"><img src="assets/image/ico1.png"></span>
+                    <span class="value">مدیریت</span>
+                </div>
+             </li>
+             <li class="active">
+              <div class="fix">
+                    <a routerLink="/course-category-list" routerLinkActive="active">
+                        <span class="ico"><img src="assets/image/ico1.png"></span>
+                        <span class="value">دسته بندی دوره ها</span>
+                    </a>
+                </div>
+             </li>
+      </ul>
+    </div>
 
-<course-category-list></course-category-list>
+<div class="content">
+    <router-outlet></router-outlet>
+</div>

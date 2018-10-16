@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router'
+
+import {ACADEMY_ROUTES} from './academy.routes';
 
 import { CourseCategoryListComponent } from './course-categories/course-category-list/course-category-list.component';
 
@@ -8,12 +11,11 @@ import { CourseCategoryListComponent } from './course-categories/course-category
     CourseCategoryListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(ACADEMY_ROUTES)
   ],
   providers: [],
-  exports:[
-    CourseCategoryListComponent
-  ],
+  exports:[],
   bootstrap: []
 })
 export class AcademyModule { }
