@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'academy';
+  public clickCount : number;
+  constructor(){
+    this.clickCount = 0;
+  }
+
+  public fire(): void{
+    this.clickCount++;
+  }
 }
