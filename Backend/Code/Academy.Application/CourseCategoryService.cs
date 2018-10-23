@@ -26,5 +26,11 @@ namespace Academy.Application
             if (entity != null)
                 _repository.Remove(entity);
         }
+
+        public void Create(CreateCourseCategoryDTO dto)
+        {
+            var entity = new CourseCategory(dto.Title);
+            _repository.Add(entity);
+        }
     }
 }

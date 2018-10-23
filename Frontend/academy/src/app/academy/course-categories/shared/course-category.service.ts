@@ -6,17 +6,21 @@ import { Observable } from "rxjs";
 @Injectable()
 export class CourseCategoryService {
 
+    private url = "http://localhost:5050/api/coursecategories";
     constructor(private http: HttpClient) {
-        
+
     }
 
     public getAll(): Observable<Array<CourseCategory>> {
-        var url = "http://localhost:5050/api/coursecategories";
-        return this.http.get<Array<CourseCategory>>(url);
+        return this.http.get<Array<CourseCategory>>(this.url);
     }
 
-    public delete(id:number) : Observable<any> {
-        var url = "http://localhost:5050/api/coursecategories/" + id;
-        return this.http.delete(url);
+    public delete(id: number): Observable<any> {
+        var curl = this.url + id;
+        return this.http.delete(curl);
+    }
+
+    public save(model: CourseCategory): Observable<any> {
+        return this.http.post(this.url,model);
     }
 }

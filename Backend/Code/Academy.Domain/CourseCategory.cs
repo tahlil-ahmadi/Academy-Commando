@@ -10,12 +10,11 @@ namespace Academy.Domain
         public long? ParentId { get; set; }
         public List<CourseCategory> Children { get; set; }
 
-        public CourseCategory(long id, string title) : this(id, title,null)
+        public CourseCategory(string title) : this(title,null)
         {
         }
-        public CourseCategory(long id, string title, CourseCategory parent)
+        public CourseCategory(string title, CourseCategory parent)
         {
-            Id = id;
             Title = title;
             Parent = parent;
         }

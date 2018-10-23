@@ -30,5 +30,11 @@ namespace Academy.Services.RestApi.Controllers
         {
             _service.Delete(id);
         }
+
+        [HttpPost]
+        public void Post([FromBody]CreateCourseCategoryDTO dto)
+        {
+            _service.Create(dto);
+        }
     }
 }

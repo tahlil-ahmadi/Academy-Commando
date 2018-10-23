@@ -33,5 +33,11 @@ namespace Academy.Persistence.EF.Repositories
             _context.CourseCategories.Remove(courseCategory);
             _context.SaveChanges();
         }
+
+        public void Add(CourseCategory entity)
+        {
+            _context.CourseCategories.Add(entity);
+            _context.SaveChanges();
+        }
     }
 }

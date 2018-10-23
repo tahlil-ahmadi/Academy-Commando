@@ -1,0 +1,14 @@
+<form #courseForm="ngForm">
+    <div>
+        <label for="title">Title : </label>
+        <input type="text" id="title" name="title" 
+                [(ngModel)]="model.title"  #title="ngModel" required minlength="3"/>
+                
+        <span [hidden]="title.pristine">
+            <span style="color: red" [hidden]="!title.errors?.required">الزامی است</span>
+            <span style="color: red" [hidden]="!title.errors?.minlength">کوتاه است</span>
+        </span>
+    </div>  
+
+    <button kendoButton (click)="save()" [disabled]="courseForm.invalid">Save</button>
+</form>

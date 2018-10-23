@@ -6,5 +6,6 @@ namespace Academy.Application.Contracts
     {
         List<CourseCategoryDTO> GetAll();
         void Delete(long id);
+        void Create(CreateCourseCategoryDTO dto);
     }
 }

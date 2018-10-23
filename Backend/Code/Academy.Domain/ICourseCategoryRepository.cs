@@ -9,5 +9,6 @@ namespace Academy.Domain
         List<CourseCategory> GetAll();
         CourseCategory GetById(long id);
         void Remove(CourseCategory courseCategory);
+        void Add(CourseCategory entity);
     }
 }
