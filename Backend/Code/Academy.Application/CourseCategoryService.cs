@@ -19,5 +19,12 @@ namespace Academy.Application
             var entities = _repository.GetAll();
             return entities.Adapt<List<CourseCategoryDTO>>();
         }
+
+        public void Delete(long id)
+        {
+            var entity = _repository.GetById(id);
+            if (entity != null)
+                _repository.Remove(entity);
+        }
     }
 }

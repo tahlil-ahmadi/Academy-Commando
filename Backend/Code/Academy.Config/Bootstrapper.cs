@@ -2,6 +2,7 @@
 using Academy.Application;
 using Academy.Application.Contracts;
 using Academy.Domain;
+using Academy.Persistence.EF;
 using Academy.Persistence.EF.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,6 +14,7 @@ namespace Academy.Config
         {
             collection.AddScoped<ICourseCategoryService, CourseCategoryService>();
             collection.AddScoped<ICourseCategoryRepository, CourseCategoryRepository>();
+            collection.AddScoped<AcademyContext>();
         }
     }
 }

@@ -23,5 +23,12 @@ namespace Academy.Services.RestApi.Controllers
         {
             return _service.GetAll();
         }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public void Delete(long id)
+        {
+            _service.Delete(id);
+        }
     }
 }

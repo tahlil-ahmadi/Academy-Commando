@@ -25,6 +25,7 @@ namespace Academy.Services.RestApi
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddAcademy();
             services.AddMvc();      //add mvc services to IocContainer
         }
@@ -40,6 +41,12 @@ namespace Academy.Services.RestApi
                 app.UseHsts();
             }
 
+            app.UseCors(builder =>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+            });
             app.UseHttpsRedirection();
             app.UseMvc();           //Add mvc MiddleWare
         }
