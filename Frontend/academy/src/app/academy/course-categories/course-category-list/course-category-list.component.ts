@@ -19,6 +19,7 @@ export class CourseCategoryListComponent implements OnInit {
     } 
 
     delete (item : CourseCategory):void {
+        //TODO: use async pipe
         this.service.delete(item.id).subscribe(a=>{
             this.loadTree();
         });

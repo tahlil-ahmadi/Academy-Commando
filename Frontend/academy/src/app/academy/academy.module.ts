@@ -13,12 +13,16 @@ import { CourseCategoryService } from './course-categories/shared/course-categor
 import { TreeViewModule } from '@progress/kendo-angular-treeview';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { DialogModule } from '@progress/kendo-angular-dialog';
-
+import { GridModule } from '@progress/kendo-angular-grid';
+import { CourseListComponent } from './courses/course-list/course-list.component';
+import { CourseService } from './courses/shared/course.service';
 
 @NgModule({
   declarations: [
     CourseCategoryListComponent,
     CourseCategoryComponent,
+
+    CourseListComponent
   ],
   imports: [
     BrowserModule,
@@ -28,13 +32,15 @@ import { DialogModule } from '@progress/kendo-angular-dialog';
 
     TreeViewModule,
     ButtonsModule,
-    DialogModule
+    DialogModule,
+    GridModule
   ],
   providers: [
-    CourseCategoryService
+    CourseCategoryService,
+    CourseService
   ],
   entryComponents:[
-    CourseCategoryComponent,
+    CourseCategoryComponent
   ],
   exports:[],
   bootstrap: []
