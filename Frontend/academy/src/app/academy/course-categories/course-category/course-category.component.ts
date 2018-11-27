@@ -10,7 +10,7 @@ import { OK } from "../../shared/dialogresults.constants";
   })
 export class CourseCategoryComponent {
     
-    private model: CourseCategory;
+    public model: CourseCategory;
     constructor(private dialog : DialogRef, private service:CourseCategoryService){
         this.model = new CourseCategory();
     }

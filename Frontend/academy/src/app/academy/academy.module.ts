@@ -16,6 +16,7 @@ import { DialogModule } from '@progress/kendo-angular-dialog';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { CourseListComponent } from './courses/course-list/course-list.component';
 import { CourseService } from './courses/shared/course.service';
+import { AuthModule } from '../auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { CourseService } from './courses/shared/course.service';
     TreeViewModule,
     ButtonsModule,
     DialogModule,
-    GridModule
+    GridModule,
+
+    AuthModule
   ],
   providers: [
     CourseCategoryService,
