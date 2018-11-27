@@ -13,7 +13,7 @@ namespace Academy.Persistence.EF
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //TODO: remove the hardcoded connection string
-            optionsBuilder.UseSqlServer(@"data source=CLASS1-TEACHER\MSSQLSERVER1;initial catalog=Academy2DB;integrated security=true");
+            optionsBuilder.UseSqlServer(@"data source=CLASS1\MSSQLSERVER1;initial catalog=AcademyDB-CM;User Id=sa;Password=123");
             base.OnConfiguring(optionsBuilder);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

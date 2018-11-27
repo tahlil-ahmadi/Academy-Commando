@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="autofixture" Version="4.5.0" />
+    <PackageReference Include="identityserver4.accesstokenvalidation" Version="2.7.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
   </ItemGroup>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Academy.Config;
+using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +26,13 @@ namespace Academy.Services.RestApi
 
         public void ConfigureServices(IServiceCollection services)
         {
+           services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+                .AddIdentityServerAuthentication(options =>
+                {
+                    options.Authority = "http://localhost:5000";
+                    options.RequireHttpsMetadata = false;
+                    options.ApiName = "academy-api";
+                });
             services.AddCors();
             services.AddAcademy();
             services.AddMvc();      //add mvc services to IocContainer
@@ -41,6 +49,7 @@ namespace Academy.Services.RestApi
                 app.UseHsts();
             }
 
+            app.UseAuthentication();
             app.UseCors(builder =>
             {
                 builder.AllowAnyOrigin()

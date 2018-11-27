@@ -3,12 +3,18 @@ import { RouterModule, Routes } from '@angular/router'
 import { AuthService } from './shared/auth.service';
 import { AuthGuard } from './shared/auth-guard';
 import { AuthCallbackComponent } from './auth-callback/auth-callback.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './shared/auth-interceptor';
 
 const AUTH_ROUTES : Routes = [
   { 
       path: 'auth-callback', 
       component: AuthCallbackComponent,
   },
+];
+
+export const httpInterceptorProviders = [
+  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
 ];
 
 @NgModule({
@@ -20,7 +26,8 @@ const AUTH_ROUTES : Routes = [
   ],
   providers: [
     AuthService,
-    AuthGuard
+    AuthGuard,
+    httpInterceptorProviders
   ],
   entryComponents:[
   ],

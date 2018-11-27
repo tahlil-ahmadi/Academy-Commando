@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Academy.Application;
 using Academy.Application.Contracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
