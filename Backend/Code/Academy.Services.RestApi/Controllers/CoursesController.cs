@@ -6,24 +6,24 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Framework.Kendo;
+using Kendo.Mvc.UI;
 
 namespace Academy.Services.RestApi.Controllers
 {
     [Route("api/[controller]")]
     public class CoursesController : Controller
     {
-        private static List<CourseDTO> courses;
-        static CoursesController()
+        private ICourseService _service;
+        public CoursesController(ICourseService service)
         {
-            var fixture = new Fixture();
-            courses = fixture.CreateMany<CourseDTO>(25).ToList();
-        }                            
+            _service = service;
+        }
 
         [HttpGet]
-        public PagedResult<CourseDTO> Get(int skip, int pageSize)
+        public PagedResult<CourseDTO> Get([DataSourceRequest]DataSourceRequest request)
         {
-            var data = courses.Skip(skip).Take(pageSize).ToList();
-            return new PagedResult<CourseDTO>(data, courses.Count);
+            return _service.Get(new KendoFilter(request));
         }
     }
 }

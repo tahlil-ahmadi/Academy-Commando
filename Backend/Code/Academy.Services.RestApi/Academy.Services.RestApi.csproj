@@ -13,12 +13,14 @@
     <PackageReference Include="identityserver4.accesstokenvalidation" Version="2.7.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Telerik.UI.for.AspNet.Core.Trial" Version="2018.3.911" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Academy.Application.Contracts\Academy.Application.Contracts.csproj" />
     <ProjectReference Include="..\Academy.Config\Academy.Config.csproj" />
     <ProjectReference Include="..\Framework.Core\Framework.Core.csproj" />
+    <ProjectReference Include="..\Framework.Kendo\Framework.Kendo.csproj" />
   </ItemGroup>
 
 </Project>

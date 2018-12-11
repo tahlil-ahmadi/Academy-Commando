@@ -13,7 +13,7 @@ export class CourseListComponent implements OnInit {
     public data:Observable<GridDataResult>;
     public state: State = {
       skip: 0,
-      take: 5
+      take: 5,
     };
     constructor(private service:CourseService) { }
 
@@ -23,6 +23,7 @@ export class CourseListComponent implements OnInit {
     }
 
     public gridStateChanged(state: DataStateChangeEvent): void {
+        debugger;
         this.state = state;
         this.service.query(this.state);
     }

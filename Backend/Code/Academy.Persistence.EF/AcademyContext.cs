@@ -10,6 +10,7 @@ namespace Academy.Persistence.EF
     public class AcademyContext : DbContext
     {
         public DbSet<CourseCategory> CourseCategories { get; set; }
+        public DbSet<Course> Courses { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //TODO: remove the hardcoded connection string
@@ -18,6 +19,7 @@ namespace Academy.Persistence.EF
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new CourseMapping());
             modelBuilder.ApplyConfiguration(new CourseCategoryMapping());
             base.OnModelCreating(modelBuilder);
         }

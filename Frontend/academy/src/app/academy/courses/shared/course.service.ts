@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable, BehaviorSubject } from "rxjs";
 import { Course } from "./course.model";
 import { GridDataResult } from "@progress/kendo-angular-grid";
-import { State } from "@progress/kendo-data-query";
+import { State, toDataSourceRequestString } from "@progress/kendo-data-query";
 
 @Injectable()
 export class CourseService extends BehaviorSubject<GridDataResult> {
@@ -14,7 +14,8 @@ export class CourseService extends BehaviorSubject<GridDataResult> {
     }
 
     public query(state: State) {
-        var curl = `${this.url}?skip=${state.skip}&pageSize=${state.take}`;
+        var filter = toDataSourceRequestString(state);
+        var curl = `${this.url}?${filter}`;
         this.http.get<GridDataResult>(curl).subscribe(a=> this.next(a));
     }
 }

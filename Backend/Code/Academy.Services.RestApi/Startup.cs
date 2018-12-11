@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Academy.Config;
+using Framework.Core.Filtering;
+using Framework.Kendo;
 using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,9 +35,11 @@ namespace Academy.Services.RestApi
                     options.RequireHttpsMetadata = false;
                     options.ApiName = "academy-api";
                 });
+            services.AddKendo();
             services.AddCors();
             services.AddAcademy();
-            services.AddMvc();      //add mvc services to IocContainer
+            services.AddMvc();
+            services.AddSingleton<IFilterHelper, KendoFilterAdapter>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
