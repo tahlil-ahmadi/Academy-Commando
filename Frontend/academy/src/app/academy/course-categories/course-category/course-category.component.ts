@@ -16,7 +16,6 @@ export class CourseCategoryComponent {
     }
    
     save():void {
-      debugger;
       this.service.save(this.model).subscribe(a=>{
         this.dialog.close(OK);
       });

@@ -11,11 +11,9 @@ namespace Academy.Persistence.EF
     {
         public DbSet<CourseCategory> CourseCategories { get; set; }
         public DbSet<Course> Courses { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public AcademyContext(DbContextOptions options):base(options)
         {
-            //TODO: remove the hardcoded connection string
-            optionsBuilder.UseSqlServer(@"data source=CLASS1\MSSQLSERVER1;initial catalog=AcademyDB-CM;User Id=sa;Password=123");
-            base.OnConfiguring(optionsBuilder);
+            
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

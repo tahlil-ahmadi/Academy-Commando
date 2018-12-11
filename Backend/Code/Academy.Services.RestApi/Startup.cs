@@ -19,9 +19,11 @@ namespace Academy.Services.RestApi
 {
     public class Startup
     {
+        private AcademyOptions options;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            options = configuration.Get<AcademyOptions>();
         }
 
         public IConfiguration Configuration { get; }
@@ -37,7 +39,7 @@ namespace Academy.Services.RestApi
                 });
             services.AddKendo();
             services.AddCors();
-            services.AddAcademy();
+            services.AddAcademy(this.options);
             services.AddMvc();
             services.AddSingleton<IFilterHelper, KendoFilterAdapter>();
         }

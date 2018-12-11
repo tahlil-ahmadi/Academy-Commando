@@ -5,13 +5,14 @@ using Academy.Application.Contracts.Courses;
 using Academy.Domain;
 using Academy.Persistence.EF;
 using Academy.Persistence.EF.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Academy.Config
 {
     public static class Bootstrapper
     {
-        public static void AddAcademy(this IServiceCollection collection)
+        public static void AddAcademy(this IServiceCollection collection, AcademyOptions options)
         {
             //TODO: use batch registration here O_o
             collection.AddScoped<ICourseCategoryService, CourseCategoryService>();
@@ -20,7 +21,8 @@ namespace Academy.Config
             collection.AddScoped<ICourseService, CourseService>();
             collection.AddScoped<ICourseRepository, CourseRepository>();
 
-            collection.AddScoped<AcademyContext>();
+            collection.AddDbContext<AcademyContext>(builder => 
+                                        builder.UseSqlServer(options.ConnectionString));
         }
     }
 }

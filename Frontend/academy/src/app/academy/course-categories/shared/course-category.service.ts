@@ -5,8 +5,8 @@ import { Observable } from "rxjs";
 
 @Injectable()
 export class CourseCategoryService {
-
-    private url = "http://localhost:5050/api/coursecategories";
+    //dont hardcode this ! :|
+    private url = "http://localhost:5050/api/coursecategories/";
     constructor(private http: HttpClient) {
 
     }
