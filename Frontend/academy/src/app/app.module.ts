@@ -7,6 +7,7 @@ import { AcademyModule } from './academy/academy.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { PermissionModule } from './permission/permission.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
     AcademyModule,
     RouterModule,
     BrowserAnimationsModule,
-    LoadingBarHttpClientModule
+    LoadingBarHttpClientModule,
+    PermissionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
