@@ -4,6 +4,7 @@ import { State } from "@progress/kendo-data-query";
 import { CourseService } from "../shared/course.service";
 import { GridDataResult, DataStateChangeEvent } from "@progress/kendo-angular-grid";
 import { Observable, Subject, BehaviorSubject } from "rxjs";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'course-list',
@@ -15,7 +16,7 @@ export class CourseListComponent implements OnInit {
       skip: 0,
       take: 5,
     };
-    constructor(private service:CourseService) { }
+    constructor(private service:CourseService, private router:Router) { }
 
     ngOnInit(): void {
         this.data = this.service;
@@ -26,5 +27,9 @@ export class CourseListComponent implements OnInit {
         debugger;
         this.state = state;
         this.service.query(this.state);
+    }
+
+    public add() {
+        this.router.navigate(['course',1]);
     }
 }

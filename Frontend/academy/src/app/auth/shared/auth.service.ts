@@ -10,6 +10,7 @@ export class AuthService {
 
     constructor(private router: Router) {
         this.userManager = new UserManager(this.getSettings());
+        this.currentUser = JSON.parse(localStorage.getItem('token'));
     }
 
     private getSettings() {
@@ -25,7 +26,7 @@ export class AuthService {
     }
 
     isUserLoggedIn() : boolean{
-        return this.currentUser != null;
+        return this.currentUser != null && !this.currentUser.expired;
     }
 
     redirectToSts(currentUrl: string) {
@@ -36,6 +37,7 @@ export class AuthService {
         // TODO: prevent open-redirection
         this.userManager.signinRedirectCallback().then(tokenResponse =>{
             this.currentUser = tokenResponse;
+            localStorage.setItem('token', JSON.stringify(tokenResponse));
             this.router.navigate([tokenResponse.state]);
         });
     }

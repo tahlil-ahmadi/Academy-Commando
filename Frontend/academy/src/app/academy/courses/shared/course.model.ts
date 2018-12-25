@@ -1,10 +1,9 @@
+import { required } from "@rxweb/reactive-form-validators";
 
 export class Course {
-    id:string;
-    title:string;
 
-    constructor(id:string, title:string){
-            this.id = id;
-            this.title = title;
-    }
+    id:string;
+
+    @required()
+    title:string;
 }

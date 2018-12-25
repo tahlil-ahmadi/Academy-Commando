@@ -1,0 +1,12 @@
+<div *ngIf="editMode">ویرایش دوره</div>
+<div *ngIf="!editMode">ثبت دوره</div>
+
+<form [formGroup]="courseForm" (ngSubmit)="submit()">
+  
+    <div>
+        <input type="text" formControlName="title">
+        <!-- <span [hidden]="formGroup.controls.title.valid">*</span> -->
+    </div>
+    
+    <button>Submit</button>
+</form>
